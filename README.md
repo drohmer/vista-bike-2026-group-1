@@ -1,10 +1,10 @@
 # VISTA Bike 2026 — Group 1
 
-Submission for the **Scandibérique Map Challenge**: 30 photos and a land-cover map of
-the valley.
+Submission **V2** for the **Scandibérique Map Challenge**: 30 photos and a land-cover
+map of the valley.
 
-Ride of 15 September 2026, 15:35 → 18:48 along the canal — a 12.9 km loop, two cameras,
-53 photos taken, 30 submitted.
+Ride of 15 September 2026, 15:35 → 18:48 along the canal — a 12.9 km loop, three
+cameras, 82 photos taken, 30 submitted.
 
 ---
 
@@ -12,12 +12,9 @@ Ride of 15 September 2026, 15:35 → 18:48 along the canal — a 12.9 km loop, t
 
 ![The 30 submitted photos](analysis/contact-sheet.jpg)
 
-The 30 handed in, chosen to match the map below.
-
-| | observed cells | coverage < 150 m | vegetation |
-|---|---:|---:|---:|
-| all 51 unique photos | 93 | 55.0 % | 0.306 |
-| **the 30 submitted** | **78** | **46.9 %** | 0.288 |
+The 30 handed in, matching the map below. 28 carry a measured GPS fix; two Rodrigo
+frames have no GPS tag and their positions were estimated from timestamps
+(`data/observations-30.json`). No EXIF was modified.
 
 ---
 
@@ -30,15 +27,18 @@ filled.
 
 | class | cells | share of the grid |
 |---|---:|---:|
-| `broadleaf` | 5,706 | 46.7 % |
+| `broadleaf` | 5,711 | 46.7 % |
 | `conifer` | 0 | 0.0 % |
-| `open` | 5,731 | 46.9 % |
-| `water` | 161 | 1.3 % |
-| `built` | 623 | 5.1 % |
+| `open` | 5,725 | 46.8 % |
+| `water` | 159 | 1.3 % |
+| `built` | 626 | 5.1 % |
 
-No photo in the set carries a compass heading, so the 50 m disk convention applies:
-the 30 photos observe **78 of the 12,221 cells — 0.6 % of the grid**. The remaining
-99.4 % comes from the prior.
+No photo in the set carries a compass heading, so the 50 m disk convention applies.
+The official kit mask counts **72 observed cells out of 12,221 — 0.6 % of the grid**.
+The remaining 99.4 % comes from the prior.
+
+V2 differs from V1 by 17 cells out of 12,221. With no ground truth available, that
+difference is not a demonstrated gain.
 
 ---
 
@@ -53,11 +53,12 @@ data/
   selection-30.txt       the list
   photo_metadata.json    EXIF + measurements, all 53 photos
   photo_scores.csv       flat table
+  observations-30.json   per-photo positions, incl. the two estimated ones
 analysis/
   contact-sheet.jpg      the sheet above
   methodologie.html      method and results in full (French)
   corpus-notes.md        corpus notes (French)
-  figures/               GPS track, fields of view, azimuths
+  figures/               GPS track, fields of view, azimuths, V1/V2 comparison
 scripts/
   extract_meta.py        EXIF + measurements  ->  photo_metadata.json
   choose_v4.py           route-based selection (exact DP)
