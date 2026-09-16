@@ -12,17 +12,12 @@ Ride of 15 September 2026, 15:35 → 18:48 along the canal — a 12.9 km loop, t
 
 ![The 30 submitted photos](analysis/contact-sheet.jpg)
 
-Selected from the 51 unique shots by exact dynamic programming over the ordered
-sequence, minimising the route's polyline simplification error at maximum vegetation.
+The 30 handed in, chosen to match the map below.
 
-| | route error | coverage < 150 m | vegetation |
+| | observed cells | coverage < 150 m | vegetation |
 |---|---:|---:|---:|
-| all 51 photos | 0.0 m | 55.0 % | 0.306 |
-| **the 30 submitted** | **8.2 m** | **53.2 %** | 0.329 |
-
-```
-python3 scripts/choose_v4.py 30 500 10
-```
+| all 51 unique photos | 93 | 55.0 % | 0.306 |
+| **the 30 submitted** | **78** | **46.9 %** | 0.288 |
 
 ---
 
@@ -42,8 +37,8 @@ filled.
 | `built` | 623 | 5.1 % |
 
 No photo in the set carries a compass heading, so the 50 m disk convention applies:
-the 30 photos observe **86 of the 12,221 cells — 0.7 % of the grid**. The remaining
-99.3 % comes from the prior.
+the 30 photos observe **78 of the 12,221 cells — 0.6 % of the grid**. The remaining
+99.4 % comes from the prior.
 
 ---
 
@@ -65,7 +60,7 @@ analysis/
   figures/               GPS track, fields of view, azimuths
 scripts/
   extract_meta.py        EXIF + measurements  ->  photo_metadata.json
-  choose_v4.py           selection by exact DP
+  choose_v4.py           route-based selection (exact DP)
   compare.py             metrics and Pareto front
   azimuth.py, synth.py   azimuth estimation, and its validation
 ```
