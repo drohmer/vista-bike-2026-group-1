@@ -33,7 +33,7 @@ optimises is a useful lens on any candidate selection, not because it produced t
 
 ## The map
 
-`vista_submission.npy` at the repository root — a 121 × 101 `uint8` array, values 1–5,
+`group1_submission.npy` at the repository root — a 121 × 101 `uint8` array, values 1–5,
 every cell filled. (Also kept under `submission/` alongside its preview.)
 
 ![Predicted land cover map](submission/map-preview.png)
@@ -58,10 +58,10 @@ cell.
 ## Contents
 
 ```
-vista_submission.npy     the map, at the root as <team>_submission.npy
-vista_photos/            the 30 originals, EXIF intact
+group1_submission.npy     the map, at the root as <team>_submission.npy
+group1_photos/            the 30 originals, EXIF intact
 submission/
-  vista_submission.npy   the 121 x 101 map
+  group1_submission.npy   the 121 x 101 map
   map-preview.png        rendering of the above
 data/
   selection-30.txt       the list
