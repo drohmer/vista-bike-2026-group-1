@@ -36,16 +36,16 @@ def err(idx):
     return max(E[a,b] for a,b in zip(idx[:-1],idx[1:]))
 def show(lbl,files):
     idx=sorted(name[f] for f in files if f in name)
-    print('%-26s %2d ph | erreur trace %7.1f m | couv<150m %5.1f%% | veg %.3f'
+    print('%-26s %2d ph | route error %7.1f m | cov<150m %5.1f%% | veg %.3f'
           %(lbl,len(idx),err(idx),100*cov(idx),veg[idx].mean()))
-show('TOUTES (%d)'%n, [r['file'] for r in recs])
-show('v3 livree (beta=0.75)', open(HERE+'/selection_30.txt').read().split('\n'))
+show('ALL (%d)'%n, [r['file'] for r in recs])
+show('delivered (beta=0.75)', open(HERE+'/selection_30.txt').read().split('\n'))
 for w in ['0','20','50']:
     os.system('cd %s && python3 choose_v4.py 30 %s >/dev/null 2>&1'%(HERE,w))
     show('v4 W_VEG=%s'%w, json.load(open(HERE+'/selection_v4.json')))
 print()
-print('Front de Pareto sous CONTRAINTE DURE (max vegetation, erreur <= Emax) :')
+print('Pareto front under HARD CONSTRAINT (max vegetation, error <= Emax):')
 for em in [10,25,50,100,200]:
     os.system('cd %s && python3 choose_v4.py 30 500 %d >/dev/null 2>&1'%(HERE,em))
-    try: show('  erreur <= %3d m'%em, json.load(open(HERE+'/selection_v4.json')))
-    except Exception: print('  erreur <= %3d m : infaisable'%em)
+    try: show('  error <= %3d m'%em, json.load(open(HERE+'/selection_v4.json')))
+    except Exception: print('  error <= %3d m : infeasible'%em)

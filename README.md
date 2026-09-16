@@ -3,8 +3,9 @@
 Submission **V2** for the **Scandibérique Map Challenge**: 30 photos and a land-cover
 map of the valley.
 
-Ride of 15 September 2026, 15:35 → 18:48 along the canal — a 12.9 km loop, three
-cameras, 82 photos taken, 30 submitted.
+Ride of 15 September 2026, 15:35 → 18:54 along the canal — a 12.9 km loop.
+**438 photos taken by five cameras, of which only 53 carry a GPS fix**; 30 submitted,
+all geolocated. See [analysis/CORPUS.md](analysis/CORPUS.md) for the full breakdown.
 
 ---
 
@@ -55,8 +56,7 @@ data/
   photo_scores.csv       flat table
 analysis/
   contact-sheet.jpg      the sheet above
-  methodologie.html      method and results in full (French)
-  corpus-notes.md        corpus notes (French)
+  CORPUS.md              the corpus: contributors, GPS coverage, caveats
   figures/               GPS track, fields of view, azimuths, V1/V2 comparison
 scripts/
   extract_meta.py        EXIF + measurements  ->  photo_metadata.json
