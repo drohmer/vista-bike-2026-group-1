@@ -1,6 +1,11 @@
+"""Metrics and Pareto front for a candidate photo selection.
+
+Compares route error, coverage and vegetation across selections. Expects
+photo_metadata.json and selection-30.txt next to it (copy them from data/).
+"""
 import json, math, os, numpy as np
 HERE=os.path.dirname(os.path.abspath(__file__))
-recs=[r for r in json.load(open(HERE+'/meta_photos.json')) if 'lat' in r and r.get('datetime')]
+recs=[r for r in json.load(open(HERE+'/photo_metadata.json')) if 'lat' in r and r.get('datetime')]
 recs.sort(key=lambda r:(r['datetime'],r['file']))
 kept=[]
 for r in recs:
@@ -39,7 +44,7 @@ def show(lbl,files):
     print('%-26s %2d ph | route error %7.1f m | cov<150m %5.1f%% | veg %.3f'
           %(lbl,len(idx),err(idx),100*cov(idx),veg[idx].mean()))
 show('ALL (%d)'%n, [r['file'] for r in recs])
-show('delivered (beta=0.75)', open(HERE+'/selection_30.txt').read().split('\n'))
+show('candidate selection', open(HERE+'/selection-30.txt').read().split('\n'))
 for w in ['0','20','50']:
     os.system('cd %s && python3 choose_v4.py 30 %s >/dev/null 2>&1'%(HERE,w))
     show('v4 W_VEG=%s'%w, json.load(open(HERE+'/selection_v4.json')))

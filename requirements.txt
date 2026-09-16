@@ -1,0 +1,7 @@
+# Python 3.11+
+numpy>=1.24
+pillow>=10.0
+pillow-heif>=0.13      # required: 83 % of the corpus is HEIC
+pyproj>=3.6            # EPSG:4326 -> EPSG:2154, used by the official kit
+opencv-python>=4.8     # scripts/azimuth.py, scripts/synth.py
+matplotlib>=3.7        # figures

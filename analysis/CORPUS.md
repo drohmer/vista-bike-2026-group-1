@@ -15,7 +15,9 @@ This single fact drives every downstream decision.
 ## Missing GPS is a camera setting, not a transfer loss
 
 The split is binary per camera, never partial: a camera either tags every photo or none. On the 385 files without a fix, the rest
-of the EXIF is **intact** — `make`, `model`, `software` and `datetime` are all present.
+of the EXIF is **intact** — `make`, `model` and `datetime` are present on all of them
+(`software` is missing on 26 files of the whole corpus, which is a camera-brand
+difference, not a stripping artefact).
 Had a transfer or an archive stripped the metadata, those fields would have gone too.
 Location services were simply off on three of the five cameras.
 
@@ -42,26 +44,27 @@ That leaves **51 unique geolocated photos**, of which 30 are submitted.
 ## One ride, five cameras
 
 Timestamps interleave across devices (15:37:32, 15:37:54, 15:35:48 …), so this is a
-single outing, not several. Full span **15:34:43 → 18:54:23**, a 12.9 km loop whose
-start and finish are 20 m apart.
+single outing, not several. Full span **15:34:43 → 18:54:23**, a **12,959 m** loop whose start and finish are
+19.6 m apart (geodesic distances, WGS84).
 
-The GPS track has **six gaps longer than 500 m**, the largest being 2,838 m between
-15:58 and 16:18 and 2,501 m on the way back. 78 % of the route length falls inside a
-gap longer than 300 m — which is why interpolating positions for the 385 GPS-less
+The GPS track has **six gaps longer than 500 m** — 2,855 m (15:58→16:18), 2,515 m
+(18:40→18:48), 1,045 m, 1,002 m, 674 m and 579 m. **78.5 % of the route length falls
+inside a gap longer than 300 m** — which is why interpolating positions for the 385 GPS-less
 photos degrades sharply on those stretches.
 
 ## Vegetation measurement: a caveat
 
 Vegetation was scored with a normalised Excess Green index, which reduces exactly to
-`3g - 1` — a threshold on green chromaticity at 0.35. It ranks images well (Spearman
-0.93 against human judgement on 17 inspected photos) but has two measured failure modes
-that matter on a canal route:
+`3g - 1` — a threshold on green chromaticity at 0.35. It ranks images sensibly, but has two failure modes that matter on a canal route
+(both reproducible from the photos in this repository):
 
-- **canal water clears the threshold** and counts as vegetation; from a bridge, trees
-  and their reflection are both counted;
-- **foliage in shade is underestimated** by up to 0.16, because sky-lit shadows push
-  chromaticity towards blue.
+- **canal water clears the threshold** and counts as vegetation: the water half of
+  `IMG_6711` scores 0.80, `IMG_6725` 0.46. From a bridge, trees and their reflection
+  are both counted;
+- **foliage in shade is underestimated**, because sky-lit shadows push chromaticity
+  towards blue.
 
-Otsu thresholding and VARI were both tested and are worse here: Otsu returns 0.744
-vegetation on a photo of the château (2 % in reality), VARI returns 0.551 on the same
-image, its denominator changing sign over blue sky.
+Otsu thresholding and VARI were both tested and are worse here. On `IMG_6749`, a photo
+of the castle with 1.6 % actual vegetation, Otsu returns **0.745** — it forces a bimodal
+split onto a unimodal histogram — and VARI returns **0.553** at the same threshold.
+The fixed threshold is clearly the better choice on this corpus.

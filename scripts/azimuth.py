@@ -14,7 +14,7 @@ FOLDER = sys.argv[1]
 MAXW = 1400
 BMIN, BMAX = 15.0, 300.0      # GPS baseline bounds (m)
 
-meta = [r for r in json.load(open('meta_photos.json')) if 'lat' in r and r.get('datetime')]
+meta = [r for r in json.load(open('photo_metadata.json')) if 'lat' in r and r.get('datetime')]
 meta.sort(key=lambda r: (r['datetime'], r['file']))
 n = len(meta)
 lat = np.array([r['lat'] for r in meta]); lon = np.array([r['lon'] for r in meta])

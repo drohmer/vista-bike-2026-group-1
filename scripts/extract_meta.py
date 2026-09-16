@@ -4,6 +4,10 @@ Extracts EXIF (GPS, timestamp, altitude, focal length, speed, accuracy) and comp
 per-image measurements: vegetation index, sharpness, exposure, appearance descriptor."""
 import sys, os, math, json, csv
 from PIL import Image, ImageFilter
+try:                       # HEIC support: 83 % of the corpus
+    import pillow_heif; pillow_heif.register_heif_opener()
+except ImportError:
+    pass
 import numpy as np
 
 EXTS = {'.jpg', '.jpeg', '.png', '.heic', '.tif', '.tiff'}
@@ -109,7 +113,7 @@ def main():
     for f in files:
         p = os.path.join(FOLDER, f)
         if os.path.getsize(p) == 0:
-            print(f"!! {f} : unhydrated placeholder -> SKIPPED", file=sys.stderr); continue
+            print(f"!! {f} : zero-byte file (cloud placeholder not downloaded) -> SKIPPED", file=sys.stderr); continue
         r = {'file': f, 'bytes': os.path.getsize(p)}
         r.update(exif_of(p))
         try:

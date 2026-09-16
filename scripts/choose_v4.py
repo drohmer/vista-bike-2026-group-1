@@ -1,5 +1,10 @@
 """Photo subset selection by exact dynamic programming.
 
+NOTE: this selector does NOT reproduce the delivered set (see README). It is an
+independent route-error-based criterion, kept as an analysis tool.
+
+Expects photo_metadata.json next to it (copy it from data/).
+
 Design:
  - objective = CURVE SIMPLIFICATION (polyline error in metres), not coverage of a
    point set, so a gap in the track is correctly penalised.
@@ -19,7 +24,7 @@ BUDGET = int(sys.argv[1]) if len(sys.argv) > 1 else 30
 W_VEG  = float(sys.argv[2]) if len(sys.argv) > 2 else 50.0   # vegetation weight
 EMAX   = float(sys.argv[3]) if len(sys.argv) > 3 else 1e9    # hard constraint (m)
 
-recs = json.load(open(os.path.join(HERE, 'meta_photos.json')))
+recs = json.load(open(os.path.join(HERE, 'photo_metadata.json')))
 recs = [r for r in recs if 'lat' in r and r.get('datetime')]
 recs.sort(key=lambda r: (r['datetime'], r['file']))
 
