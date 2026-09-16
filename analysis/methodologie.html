@@ -1,0 +1,605 @@
+<title>Trente photos sur 12,9 km</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#f5f7f3;
+    --surface:#ffffff;
+    --ink:#161d17;
+    --muted:#69756b;
+    --line:#d7ded4;
+    --accent:#2f6b3f;
+    --accent-soft:#e4ede2;
+    --brick:#a1382b;
+    --brick-soft:#f4e4e0;
+    --water:#2a5d78;
+    --water-soft:#e0eaf0;
+    --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+    --cond:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#0f130e; --surface:#171d16; --ink:#e2e9df; --muted:#93a094;
+      --line:#2b342a; --accent:#74c084; --accent-soft:#1b2a1d;
+      --brick:#e08574; --brick-soft:#2e1c18;
+      --water:#7fb6d4; --water-soft:#152730;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0f130e; --surface:#171d16; --ink:#e2e9df; --muted:#93a094;
+    --line:#2b342a; --accent:#74c084; --accent-soft:#1b2a1d;
+    --brick:#e08574; --brick-soft:#2e1c18;
+    --water:#7fb6d4; --water-soft:#152730;
+  }
+
+  body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+       font-size:16.5px;line-height:1.62;margin:0;}
+  .wrap{max-width:50rem;margin:0 auto;padding-inline:20px;padding-block:56px 80px;}
+
+  .eyebrow{font-family:var(--cond);font-size:.74rem;font-weight:600;letter-spacing:.14em;
+           text-transform:uppercase;color:var(--accent);margin:0 0 14px;}
+  h1{font-family:var(--cond);font-weight:700;font-size:clamp(2.1rem,6vw,3.1rem);
+     line-height:1.06;letter-spacing:-.015em;text-wrap:balance;margin:0 0 18px;}
+  .standfirst{font-size:1.12rem;color:var(--muted);max-width:36rem;margin:0 0 30px;}
+
+  .facts{display:flex;flex-wrap:wrap;border-top:1px solid var(--line);
+         border-bottom:1px solid var(--line);margin-bottom:52px;}
+  .fact{flex:1 1 7rem;padding:14px 18px 14px 0;}
+  .fact dt{font-family:var(--cond);font-size:.7rem;font-weight:600;letter-spacing:.11em;
+           text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+  .fact dd{font-family:var(--mono);font-size:1.12rem;font-variant-numeric:tabular-nums;margin:0;}
+
+  h2{font-family:var(--cond);font-weight:700;font-size:1.62rem;letter-spacing:-.008em;
+     text-wrap:balance;margin:52px 0 6px;padding-top:22px;border-top:1px solid var(--line);}
+  h2 .num{font-family:var(--mono);font-size:.82rem;font-weight:500;color:var(--accent);
+          display:block;margin-bottom:6px;letter-spacing:.04em;}
+  h3{font-family:var(--cond);font-weight:600;font-size:1.12rem;margin:30px 0 4px;}
+  p{margin:0 0 15px;}
+  a{color:var(--accent);}
+  strong{font-weight:500;color:var(--ink);}
+  code{font-family:var(--mono);font-size:.87em;background:var(--accent-soft);
+       padding:1px 5px;border-radius:3px;}
+  ul{margin:0 0 15px;padding-left:1.15rem;}
+  li{margin-bottom:7px;}
+
+  .formula{font-family:var(--mono);font-size:.94rem;background:var(--surface);
+           border:1px solid var(--line);border-left:3px solid var(--accent);
+           padding:16px 18px;margin:20px 0;overflow-x:auto;line-height:1.85;}
+  .formula .gloss{color:var(--muted);font-size:.82rem;}
+
+  .note{border-left:3px solid var(--brick);background:var(--brick-soft);
+        padding:14px 18px;margin:22px 0;}
+  .note .tag{font-family:var(--cond);font-size:.68rem;font-weight:700;letter-spacing:.13em;
+             text-transform:uppercase;color:var(--brick);display:block;margin-bottom:5px;}
+  .note p{margin-bottom:0;font-size:.95rem;}
+  .note p + p{margin-top:10px;}
+
+  .keep{border-left:3px solid var(--accent);background:var(--accent-soft);
+        padding:14px 18px;margin:22px 0;}
+  .keep .tag{font-family:var(--cond);font-size:.68rem;font-weight:700;letter-spacing:.13em;
+             text-transform:uppercase;color:var(--accent);display:block;margin-bottom:5px;}
+  .keep p{margin-bottom:0;font-size:.95rem;}
+
+  .tablewrap{overflow-x:auto;margin:22px 0;}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:26rem;}
+  th,td{text-align:right;padding:8px 12px;border-bottom:1px solid var(--line);
+        font-variant-numeric:tabular-nums;font-family:var(--mono);}
+  th:first-child,td:first-child{text-align:left;font-family:var(--serif);}
+  thead th{font-family:var(--cond);font-size:.72rem;font-weight:600;letter-spacing:.08em;
+           text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--ink);}
+  tr.pick td{background:var(--accent-soft);}
+
+  .cap{font-family:var(--cond);font-size:.82rem;color:var(--muted);line-height:1.45;margin-top:-10px;}
+  figure{margin:26px 0;}
+  figcaption{font-family:var(--cond);font-size:.8rem;color:var(--muted);
+             margin-top:8px;line-height:1.45;}
+  .profile{width:100%;height:auto;display:block;}
+
+  footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);
+         font-size:.88rem;color:var(--muted);}
+</style>
+
+<div class="wrap">
+
+  <p class="eyebrow">Note de méthode · révision 2 · trois audits intégrés</p>
+  <h1>Trente photos sur 12,9 km</h1>
+  <p class="standfirst">
+    Choisir un sous-ensemble de photos géolocalisées qui préserve la reconstructibilité
+    d'un itinéraire et la végétation qu'on y a vue. Ce que la méthode obtient,
+    et les quatre fois où elle s'est trompée.
+  </p>
+
+  <dl class="facts">
+    <div class="fact"><dt>Photos reçues</dt><dd>53</dd></div>
+    <div class="fact"><dt>Uniques</dt><dd>51</dd></div>
+    <div class="fact"><dt>Budget</dt><dd>30</dd></div>
+    <div class="fact"><dt>Parcours</dt><dd>12,9 km</dd></div>
+    <div class="fact"><dt>Erreur du tracé</dt><dd>8,2 m</dd></div>
+  </dl>
+
+  <h2><span class="num">01</span>Le terrain</h2>
+  <p>
+    Une boucle de 12,9 km parcourue le 15 septembre 2026 entre 15 h 37 et 18 h 48,
+    photographiée par deux appareils — un iPhone 16 Pro et un Android — dont les
+    horodatages s'entrelacent : une seule sortie, pas deux.
+  </p>
+  <p>
+    Le parcours suit un <strong>canal</strong> : bourg, château, écluses, silos à grain,
+    chemin de halage bordé de platanes. Ce point n'est pas anecdotique — il détermine
+    ce qu'une mesure de végétation peut et ne peut pas faire, comme on le verra au §04.
+  </p>
+  <p>
+    Deux objectifs tirent en sens contraire. <strong>Reconstruire le chemin</strong>
+    demande des photos aux endroits où le tracé change de direction ;
+    <strong>maximiser la végétation</strong> concentre la sélection sur les zones vertes.
+  </p>
+
+  <h2><span class="num">02</span>Préparation</h2>
+  <p>
+    Extraction EXIF (GPS, horodatage, altitude, focale, vitesse, précision à 4,7 m) et
+    analyse pixel. Une vidéo écartée, et deux doublons détectés par comparaison
+    perceptuelle (dHash 8×8, distance de Hamming ≤ 5).
+  </p>
+  <p>
+    Le cas <code>IMG_6760</code> justifie à lui seul cette approche : les deux fichiers
+    ont une taille identique <em>à l'octet près</em> mais des MD5 différents. Une
+    déduplication binaire les aurait manqués.
+  </p>
+
+  <div class="note">
+    <span class="tag">Piège d'environnement</span>
+    <p>
+      Le script d'extraction s'appelait initialement <code>select.py</code>, ce qui
+      <strong>masque le module standard <code>select</code></strong>. Pillow l'importe
+      paresseusement en lisant les IFD EXIF : la première image traitée perdait
+      silencieusement GPS et horodatage, l'exception étant absorbée par un
+      <code>try</code>. Symptôme : la longueur du parcours variait entre exécutions
+      (12 890 m contre 12 647 m) selon le répertoire courant.
+    </p>
+  </div>
+
+  <h2><span class="num">03</span>Ce que « reconstruire le chemin » veut dire</h2>
+  <p>
+    Il n'existe pas de trace GPS continue — seulement 51 points. « Reconstruire le
+    chemin » ne peut donc signifier qu'une chose : <strong>que la polyligne des photos
+    retenues approxime la polyligne complète à 51 sommets</strong>. La mesure directe en
+    est l'<strong>erreur maximale de simplification</strong>, en mètres : la plus grande
+    distance d'un point écarté à la corde qui l'enjambe.
+  </p>
+  <p>
+    C'est un critère exact, interprétable, et exprimé dans l'unité du problème. La
+    première version de cette méthode utilisait à la place une couverture par noyau
+    gaussien le long de l'abscisse curviligne — un proxy bien plus lâche, dont le §07
+    détaille l'échec.
+  </p>
+
+  <h2><span class="num">04</span>Mesure de la végétation</h2>
+  <p>
+    Indice <em>Excess Green</em> normalisé par la chromaticité, sur une version réduite
+    de chaque image :
+  </p>
+  <div class="formula">
+    ExG = 2·(G/S) − (R/S) − (B/S)<span class="gloss">   avec S = R + G + B</span><br>
+    veg = |{ pixels : ExG &gt; 0,05 }| / N
+  </div>
+  <p>
+    Puisque les chromaticités somment à 1, cette expression se réduit exactement à
+    <code>ExG = 3g − 1</code>. La mesure est donc, littéralement, <strong>la fraction de
+    pixels dont la chromaticité verte dépasse 0,35</strong> — soit 1,7 point au-dessus du
+    gris neutre. Un seuil très permissif, mais dans la fourchette publiée.
+  </p>
+
+  <div class="keep">
+    <span class="tag">Validé empiriquement</span>
+    <p>
+      Sur 17 photos couvrant toute la plage, examinées visuellement et comparées à un
+      jugement humain : <strong>corrélation de Spearman +0,93</strong>, biais moyen −0,02.
+      Aucune alternative testée ne fait mieux — un seuillage d'Otsu donne
+      <strong>0,744 sur la photo du château</strong> (2 % de végétation réelle), et VARI
+      donne 0,551 sur la même image, son dénominateur changeant de signe sur le ciel bleu.
+    </p>
+  </div>
+
+  <h3>Ses deux limites, qui comptent le long d'un canal</h3>
+  <ul>
+    <li>
+      <strong>L'eau verte est comptée comme végétation.</strong> Sur une photo prise
+      depuis un pont, les arbres <em>et leur reflet</em> sont comptés deux fois.
+      C'est structurel : l'eau du canal est réellement verte en chromaticité.
+    </li>
+    <li>
+      <strong>Le feuillage à l'ombre est perdu</strong> — jusqu'à −0,16. Le ciel éclaire
+      l'ombre à ~15 000 K, la composante bleue monte et la chromaticité verte chute
+      sous le seuil.
+    </li>
+  </ul>
+  <p>
+    Le ciel bleu, en revanche, n'est jamais compté. Conclusion : <code>veg</code> est
+    un <strong>classement</strong> fiable, pas une mesure de surface exploitable en absolu.
+  </p>
+
+  <h2><span class="num">05</span>La sélection</h2>
+  <p>
+    Le problème a une structure 1D — les photos sont ordonnées le long du parcours — ce
+    qui le rend <strong>exactement résoluble</strong> par programmation dynamique sur un
+    graphe orienté acyclique : plus long chemin à exactement <em>k</em> sommets, du
+    départ à l'arrivée.
+  </p>
+  <div class="formula">
+    maximiser  Σ<sub>t</sub> [ w·veg(i<sub>t</sub>) + 0,15·qualité(i<sub>t</sub>) ]  −  Σ<sub>t</sub> E(i<sub>t</sub>, i<sub>t+1</sub>)<br><br>
+    <span class="gloss">E(i,j) = erreur max de polyligne si l'on saute les photos entre i et j</span><br>
+    <span class="gloss">contrainte dure : E(i,j) ≤ E_max — les arêtes trop coûteuses sont interdites</span>
+  </div>
+  <p>
+    Complexité O(k·n²) = 78 000 transitions, soit quelques millisecondes. La contrainte
+    dure est préférable à un réglage de poids : elle s'exprime en mètres et donne
+    directement le front de Pareto.
+  </p>
+
+  <div class="note">
+    <span class="tag">Erreur de conception, corrigée</span>
+    <p>
+      La version précédente maximisait gloutonnement une fonction sous-modulaire, en
+      invoquant la garantie (1 − 1/e) ≈ 63 %. Un audit a calculé l'optimum exact :
+      <strong>le glouton en était à 0,22 %</strong>. Toute l'argumentation sur cette
+      garantie était du théâtre — l'optimiseur n'a jamais été le problème.
+    </p>
+    <p>
+      L'objectif, lui, l'était. La couverture était évaluée <strong>aux 51 positions de
+      photos</strong> et non le long du chemin : un trou de 2 838 m ne contient aucun
+      point d'évaluation, donc <strong>il ne coûtait rien</strong>. La métrique était
+      aveugle à exactement ce qu'elle prétendait mesurer.
+    </p>
+  </div>
+
+  <h3>Deux termes supprimés</h3>
+  <ul>
+    <li>
+      <strong>La courbure locale.</strong> Calculée entre positions de photos consécutives,
+      elle produisait des angles entre un segment de 2 838 m et un de 5 m — 15 valeurs
+      au-delà de 90°, des demi-tours fantômes. C'était 26 % du poids total, et son
+      ablation <em>améliore</em> la végétation retenue.
+    </li>
+    <li>
+      <strong>Le double comptage de la végétation</strong>, qui apparaissait à la fois
+      comme poids d'importance et comme terme additif, rendant son réglage illisible.
+    </li>
+  </ul>
+
+  <h2><span class="num">06</span>L'angle de vue : une mesure invalide</h2>
+  <p>
+    <strong>Aucune des 53 photos ne contient de <code>GPSImgDirection</code></strong> — ni
+    l'iPhone ni l'Android n'ont enregistré de cap. Le substitut tenté mesurait la
+    ressemblance d'apparence, par histogramme HSV sur grille 2×2, en pariant que deux
+    photos prises au même endroit qui se ressemblent cadrent la même chose.
+  </p>
+  <p>
+    <strong>Le pari est faux.</strong> Quatre photos prises au même point en 16 secondes,
+    dans quatre directions différentes — le sol, la machinerie d'écluse, le canal dans
+    l'axe, un manoir — servent de test décisif. Deux vues <em>totalement disjointes</em>
+    y obtiennent une similarité de <strong>0,792</strong>, au-dessus du 95<sup>e</sup>
+    centile global. Sur 17 paires étiquetées à la main :
+  </p>
+  <div class="formula">
+    min(même visée) = 0,612   &lt;   max(visée différente) = 0,792<br>
+    <span class="gloss">aucun seuil ne sépare les deux classes</span>
+  </div>
+  <p>
+    Corrélation du descripteur avec la distance GPS : <strong>−0,027</strong>. Avec
+    l'écart temporel : <strong>+0,007</strong>. Il n'est corrélé à rien de géométrique.
+    La raison est structurelle : sa masse se répartit en exactement un tiers teinte, un
+    tiers saturation, un tiers valeur — <strong>les deux tiers mesurent de la photométrie
+    pure</strong>, c'est-à-dire l'heure et le contre-jour.
+  </p>
+  <p>
+    Le terme a été retiré. La piste correcte est une <strong>vérification géométrique</strong>
+    — appariement ORB puis RANSAC — qui donne un ratio de 38× entre les deux classes là
+    où le descripteur couleur n'a aucune marge. Elle répond à la bonne question, la
+    co-visibilité, et non « ces deux photos ont-elles la même palette ».
+  </p>
+
+  <h2><span class="num">07</span>Les azimuts : une tentative qui échoue</h2>
+  <p>
+    Récupérer les caps manquants par géométrie multi-vues est possible en principe :
+    l'appariement ne donne que la pose <em>relative</em>, mais le GPS fournit l'ancrage
+    absolu.
+  </p>
+  <div class="formula">
+    direction A→B dans le repère caméra de A :  −Rᵀt<br>
+    direction A→B par rapport au nord :  depuis le GPS<br>
+    azimut de A = azimut_monde(A→B) − atan2(d<sub>x</sub>, d<sub>z</sub>)
+  </div>
+  <p>
+    Résultat : <strong>9 paires reconstruites sur 117, et 2 photos réellement
+    déterminées sur 53</strong>. Un bootstrap par paire donne la mesure honnête —
+    8 paires sur 9 ont une dispersion de 44 à 113°, c'est-à-dire uniforme sur le cercle.
+  </p>
+
+  <div class="note">
+    <span class="tag">Un test qui ne testait rien</span>
+    <p>
+      La validation croisée employée pour juger ces azimuts est
+      <strong>rigoureusement invariante au GPS</strong> : décaler le bearing de 0°, 10°,
+      45° ou 120° donne exactement la même valeur, car le terme
+      <code>th_BA − th_AB = π</code> élimine la contribution du GPS. Elle ne mesurait
+      jamais l'ancrage absolu, qui était pourtant tout l'enjeu.
+    </p>
+    <p>
+      Un test synthétique avait bien révélé un vrai bug de signe — <code>+t</code> et non
+      <code>−t</code> pour l'origine de A dans le repère de B, 180° d'erreur sur 8 essais
+      sur 8. Mais il était complaisant sur tout le reste : même matrice <code>K</code>
+      pour générer et pour estimer, roulis et tangage nuls, GPS exact, aucun aberrant.
+    </p>
+  </div>
+
+  <p>
+    Deux bugs d'intrinsèques s'ajoutaient : une seule matrice <code>K</code> pour les
+    deux images d'une paire — alors que les focales vont de 13 à 105 mm — et un
+    diviseur 36 au lieu de 43,267, la focale équivalente 35 mm étant définie sur la
+    <strong>diagonale</strong>. Sur deux paires à focales identiques, cet écart de 3,85 %
+    fait basculer l'azimut de 96° et 79° : la preuve que ces solutions n'étaient pas
+    conditionnées.
+  </p>
+  <p>
+    <strong>L'échec tient à l'architecture plus qu'aux données.</strong> Au seuil de 25
+    correspondances, 43 photos sur 53 sont connectées et 37 appartiennent à une
+    composante ancrable au nord : le plafond est de l'ordre de 35 à 40 photos. Le
+    pipeline en extrait 2, parce qu'il <strong>jette exactement les paires qui
+    s'apparient le mieux</strong> — celles à baseline nulle, dégénérées pour la
+    translation mais parfaitement exploitables pour la rotation.
+  </p>
+  <p>
+    La voie correcte serait une SfM globale avec priors GPS (COLMAP
+    <code>pose_prior_mapper</code>), ou un <em>rotation averaging</em> sur tout le graphe.
+    Et pour ce corpus précis, une piste sans appariement : le <strong>soleil</strong>.
+    Entre 15 h 35 et 18 h 48 à 48,24° N, son azimut va de 215° à 260° et sa hauteur de
+    39° à 12°. Un contre-jour ou des ombres portées donnent l'azimut absolu d'une
+    <em>seule</em> photo, à quelques degrés près.
+  </p>
+
+  <h2><span class="num">08</span>Résultats</h2>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th></th><th>Erreur du tracé</th><th>Couverture &lt; 150 m</th><th>Végétation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Les 51 photos</td><td>0,0 m</td><td>55,0 %</td><td>0,306</td></tr>
+        <tr><td>Méthode précédente</td><td>58,3 m</td><td>49,8 %</td><td>0,386</td></tr>
+        <tr class="pick"><td>Méthode corrigée</td><td>8,2 m</td><td>53,2 %</td><td>0,329</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    <strong>L'erreur de reconstruction du tracé passe de 58,3 m à 8,2 m — un facteur 7 —
+    et la couverture s'améliore aussi.</strong> Le coût est en végétation : 0,329 contre
+    0,386. La couverture est ici évaluée sur une grille dense du chemin, tous les 5 m,
+    et non plus aux seules positions de photos.
+  </p>
+
+  <h3>Le front de Pareto, sous contrainte dure</h3>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Erreur autorisée</th><th>Erreur obtenue</th><th>Végétation</th><th>Couverture</th></tr>
+      </thead>
+      <tbody>
+        <tr class="pick"><td>≤ 10 m</td><td>8,2 m</td><td>0,329</td><td>53,2 %</td></tr>
+        <tr><td>≤ 25 m</td><td>22,4 m</td><td>0,347</td><td>48,6 %</td></tr>
+        <tr><td>≤ 50 m</td><td>49,8 m</td><td>0,375</td><td>49,1 %</td></tr>
+        <tr><td>≤ 100 m</td><td>59,8 m</td><td>0,402</td><td>48,5 %</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Le réglage à 10 m <strong>domine</strong> celui à 25 m sur l'erreur <em>et</em> sur la
+    couverture, pour 0,018 de végétation en moins. C'est le choix retenu. Relâcher
+    jusqu'à 100 m achète 0,073 de végétation au prix d'un tracé sept fois plus grossier.
+  </p>
+
+  <h3>Les trente photos retenues</h3>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Fichier</th><th>Heure</th><th>Végétation</th><th>Position</th></tr>
+      </thead>
+      <tbody>
+<tr><td>IMG_20260915_153548 Xavier</td><td>15:35:48</td><td>0.18</td><td>0</td></tr>
+<tr><td>IMG_20260915_153737 Xavier</td><td>15:37:37</td><td>0.44</td><td>243</td></tr>
+<tr><td>IMG_6705 Damien</td><td>15:37:54</td><td>0.47</td><td>394</td></tr>
+<tr><td>IMG_6706 Damien</td><td>15:37:57</td><td>0.45</td><td>448</td></tr>
+<tr><td>IMG_6709 Damien</td><td>15:42:52</td><td>0.49</td><td>1149</td></tr>
+<tr><td>IMG_20260915_154421 Xavier</td><td>15:44:21</td><td>0.38</td><td>1319</td></tr>
+<tr><td>IMG_6711 Damien</td><td>15:45:14</td><td>0.46</td><td>1732</td></tr>
+<tr><td>IMG_20260915_154923 Xavier</td><td>15:49:23</td><td>0.47</td><td>2346</td></tr>
+<tr><td>IMG_6717 Damien</td><td>15:49:54</td><td>0.66</td><td>2415</td></tr>
+<tr><td>IMG_6718 Damien</td><td>15:58:14</td><td>0.22</td><td>3455</td></tr>
+<tr><td>IMG_6719 Damien</td><td>16:18:14</td><td>0.45</td><td>6293</td></tr>
+<tr><td>IMG_6721 Damien</td><td>16:19:07</td><td>0.51</td><td>6462</td></tr>
+<tr><td>IMG_6722 Damien</td><td>16:19:56</td><td>0.53</td><td>6517</td></tr>
+<tr><td>IMG_6723 Damien</td><td>16:23:25</td><td>0.28</td><td>7514</td></tr>
+<tr><td>IMG_6725 Damien</td><td>16:24:49</td><td>0.24</td><td>7706</td></tr>
+<tr><td>IMG_6726 Damien</td><td>16:24:52</td><td>0.28</td><td>7813</td></tr>
+<tr><td>IMG_6729 Damien</td><td>16:26:12</td><td>0.28</td><td>8071</td></tr>
+<tr><td>IMG_6730 Damien</td><td>16:27:52</td><td>0.12</td><td>8503</td></tr>
+<tr><td>IMG_6731 Damien</td><td>16:28:09</td><td>0.35</td><td>8555</td></tr>
+<tr><td>IMG_6734 Damien</td><td>16:28:45</td><td>0.14</td><td>8606</td></tr>
+<tr><td>IMG_6737 Damien</td><td>16:29:19</td><td>0.46</td><td>8719</td></tr>
+<tr><td>IMG_6741 Damien</td><td>16:30:56</td><td>0.24</td><td>8895</td></tr>
+<tr><td>IMG_6742 Damien</td><td>16:33:38</td><td>0.15</td><td>9471</td></tr>
+<tr><td>IMG_6744 Damien</td><td>16:35:40</td><td>0.09</td><td>9749</td></tr>
+<tr><td>IMG_6745 Damien</td><td>16:36:33</td><td>0.05</td><td>9808</td></tr>
+<tr><td>IMG_6746 Damien</td><td>16:37:24</td><td>0.06</td><td>9877</td></tr>
+<tr><td>IMG_6749 Damien</td><td>16:41:34</td><td>0.02</td><td>9978</td></tr>
+<tr><td>IMG_6756 Damien</td><td>18:38:19</td><td>0.43</td><td>10303</td></tr>
+<tr><td>IMG_6758 Damien</td><td>18:40:04</td><td>0.57</td><td>10389</td></tr>
+<tr><td>IMG_6760 Damien</td><td>18:48:23</td><td>0.39</td><td>12890</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="cap">
+    Position = abscisse curviligne en mètres depuis le départ. Végétation = fraction de
+    pixels au-dessus du seuil de chromaticité verte (§04), à lire comme un rang, pas
+    comme une surface.
+  </p>
+
+  <figure>
+    <svg class="profile" viewBox="0 0 1000 150" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="Répartition des 30 photos retenues le long des 12,9 km, avec deux trous de données">
+      <rect x="277" y="26" width="212" height="76" fill="var(--brick)" opacity="0.13"></rect>
+      <rect x="794" y="26" width="186" height="76" fill="var(--brick)" opacity="0.13"></rect>
+      <text x="383" y="20" fill="var(--brick)" font-family="IBM Plex Sans Condensed, sans-serif" font-size="14" text-anchor="middle">2,8 km sans photo</text>
+      <text x="887" y="20" fill="var(--brick)" font-family="IBM Plex Sans Condensed, sans-serif" font-size="14" text-anchor="middle">2,5 km sans photo</text>
+      <line x1="20" y1="102" x2="980" y2="102" stroke="var(--line)" stroke-width="1.5"></line>
+      <g stroke="var(--muted)" stroke-width="1.5" opacity="0.5">
+        <line x1="103" y1="102" x2="103" y2="86"></line><line x1="105" y1="102" x2="105" y2="86"></line>
+        <line x1="145" y1="102" x2="145" y2="86"></line><line x1="149" y1="102" x2="149" y2="86"></line>
+        <line x1="150" y1="102" x2="150" y2="86"></line><line x1="178" y1="102" x2="178" y2="86"></line>
+        <line x1="178" y1="102" x2="178" y2="86"></line><line x1="199" y1="102" x2="199" y2="86"></line>
+        <line x1="199" y1="102" x2="199" y2="86"></line><line x1="489" y1="102" x2="489" y2="86"></line>
+        <line x1="621" y1="102" x2="621" y2="86"></line><line x1="657" y1="102" x2="657" y2="86"></line>
+        <line x1="657" y1="102" x2="657" y2="86"></line><line x1="669" y1="102" x2="669" y2="86"></line>
+        <line x1="670" y1="102" x2="670" y2="86"></line><line x1="670" y1="102" x2="670" y2="86"></line>
+        <line x1="758" y1="102" x2="758" y2="86"></line><line x1="759" y1="102" x2="759" y2="86"></line>
+        <line x1="787" y1="102" x2="787" y2="86"></line><line x1="793" y1="102" x2="793" y2="86"></line>
+        <line x1="794" y1="102" x2="794" y2="86"></line>
+      </g>
+      <g stroke="var(--accent)" stroke-width="2.6">
+        <line x1="20" y1="102" x2="20" y2="44"></line><line x1="38" y1="102" x2="38" y2="44"></line>
+        <line x1="49" y1="102" x2="49" y2="44"></line><line x1="53" y1="102" x2="53" y2="44"></line>
+        <line x1="106" y1="102" x2="106" y2="44"></line><line x1="118" y1="102" x2="118" y2="44"></line>
+        <line x1="149" y1="102" x2="149" y2="44"></line><line x1="195" y1="102" x2="195" y2="44"></line>
+        <line x1="200" y1="102" x2="200" y2="44"></line><line x1="277" y1="102" x2="277" y2="44"></line>
+        <line x1="489" y1="102" x2="489" y2="44"></line><line x1="501" y1="102" x2="501" y2="44"></line>
+        <line x1="505" y1="102" x2="505" y2="44"></line><line x1="580" y1="102" x2="580" y2="44"></line>
+        <line x1="594" y1="102" x2="594" y2="44"></line><line x1="602" y1="102" x2="602" y2="44"></line>
+        <line x1="621" y1="102" x2="621" y2="44"></line><line x1="653" y1="102" x2="653" y2="44"></line>
+        <line x1="657" y1="102" x2="657" y2="44"></line><line x1="661" y1="102" x2="661" y2="44"></line>
+        <line x1="669" y1="102" x2="669" y2="44"></line><line x1="682" y1="102" x2="682" y2="44"></line>
+        <line x1="725" y1="102" x2="725" y2="44"></line><line x1="746" y1="102" x2="746" y2="44"></line>
+        <line x1="750" y1="102" x2="750" y2="44"></line><line x1="756" y1="102" x2="756" y2="44"></line>
+        <line x1="763" y1="102" x2="763" y2="44"></line><line x1="787" y1="102" x2="787" y2="44"></line>
+        <line x1="794" y1="102" x2="794" y2="44"></line><line x1="980" y1="102" x2="980" y2="44"></line>
+      </g>
+      <g fill="var(--muted)" font-family="IBM Plex Mono, monospace" font-size="12">
+        <text x="20" y="124" text-anchor="start">0</text>
+        <text x="318" y="124" text-anchor="middle">4 km</text>
+        <text x="616" y="124" text-anchor="middle">8 km</text>
+        <text x="980" y="124" text-anchor="end">12,9 km</text>
+      </g>
+      <text x="20" y="144" fill="var(--muted)" font-family="IBM Plex Sans Condensed, sans-serif" font-size="13">
+        Barres hautes : photos retenues · barres basses : écartées
+      </text>
+    </svg>
+    <figcaption>
+      Répartition des 30 photos retenues. Les deux zones rouges ne contiennent
+      <em>aucune</em> photo dans le jeu complet.
+    </figcaption>
+  </figure>
+
+  <h2><span class="num">09</span>Ce que les données imposent</h2>
+  <p>
+    Le jeu complet contient six trous de plus de 500 m — 670, 1 040, 2 838, 996, 576 et
+    2 501 m. <strong>78 % de la longueur du parcours est dans un trou de plus de 300 m.</strong>
+    Sur ces portions, le « chemin » n'est qu'une corde droite entre deux photos : le
+    dénominateur de toute métrique de couverture y est une fiction.
+  </p>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Segment</th><th>Longueur</th><th>Entre</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0,4 → 1,1 km</td><td>670 m</td><td>6706 → 6707</td></tr>
+        <tr><td>2,4 → 3,5 km</td><td>1 040 m</td><td>6717 → 6718</td></tr>
+        <tr class="pick"><td>3,5 → 6,3 km</td><td>2 838 m</td><td>6718 → 6719</td></tr>
+        <tr><td>6,5 → 7,5 km</td><td>996 m</td><td>6722 → 6723</td></tr>
+        <tr><td>8,9 → 9,5 km</td><td>576 m</td><td>6741 → 6742</td></tr>
+        <tr class="pick"><td>10,4 → 12,9 km</td><td>2 501 m</td><td>6759 → 6760</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Conséquence : la couverture plafonne à 55 % <em>même en conservant les 51 photos</em>,
+    et la sélection de 30 en atteint 53,2 %, soit <strong>97 % de ce qui est
+    atteignable</strong>. Le budget n'est pas la contrainte — si le tracé complet importe,
+    c'est une trace GPX qu'il faut enregistrer, pas davantage de photos.
+  </p>
+  <p>
+    Il y a aussi peu d'enjeu qu'il n'y paraît dans le choix de la formulation : à un taux
+    de sélection de 30 sur 51, six formulations différentes partagent 15 photos
+    identiques, et la méthode corrigée conserve 22 des 30 photos de la précédente.
+    <strong>Il n'y a structurellement que quelques photos en débat.</strong>
+  </p>
+
+  <h2><span class="num">10</span>Les quatre erreurs</h2>
+  <p>
+    Trois audits indépendants — géométrie multi-vues, formulation de la sélection,
+    mesures d'image — ont porté sur cette méthode. Ce qu'ils ont corrigé, par ordre de
+    gravité :
+  </p>
+  <ul>
+    <li>
+      <strong>Le terrain a été décrit de travers.</strong> Cette étude a parlé de
+      « forêt » du début à la fin alors qu'il s'agit d'un canal avec bourg et écluses —
+      et l'explication de l'échec SfM reposait sur cette description. Cause : 53 images
+      analysées par statistiques de pixels, <em>sans qu'aucune n'ait jamais été
+      regardée</em>.
+    </li>
+    <li>
+      <strong>La métrique de couverture était aveugle aux trous</strong>, évaluée sur les
+      photos et non sur le chemin.
+    </li>
+    <li>
+      <strong>Le proxy d'angle de vue ne mesurait pas l'angle de vue</strong>, mais la
+      luminosité et la quantité de vert.
+    </li>
+    <li>
+      <strong>La validation croisée des azimuts était vide</strong>, invariante à la
+      donnée qu'elle prétendait valider.
+    </li>
+  </ul>
+  <p>
+    Un point commun : chacune de ces erreurs produisait des <em>nombres plausibles</em>.
+    Aucune n'aurait été détectée en regardant les résultats — il a fallu, à chaque fois,
+    construire un test capable d'échouer.
+  </p>
+
+  <h2><span class="num">11</span>Reproductibilité</h2>
+  <h3>Paramètres de la sélection retenue</h3>
+  <div class="formula">
+    budget k = 30<span class="gloss">        sur 51 photos uniques</span><br>
+    w_végétation = 500<span class="gloss">   maximise la végétation SOUS la contrainte</span><br>
+    E_max = 10 m<span class="gloss">         contrainte dure sur l'erreur de polyligne</span><br>
+    w_qualité = 0,15<span class="gloss">     netteté × (1 − |exposition − 0,45| × 1,6)</span><br>
+    seuil ExG = 0,05<span class="gloss">     soit chromaticité verte g &gt; 0,35</span><br>
+    dHash ≤ 5 bits<span class="gloss">       seuil de déduplication perceptuelle</span><br>
+    <br>
+    <span class="gloss">Première et dernière photo imposées comme extrémités du chemin.</span><br>
+    <span class="gloss">Projection locale : 111 320·cos(lat) m/° en longitude, 110 540 m/° en latitude.</span>
+  </div>
+  <p>
+    Le poids de végétation à 500 n'est pas un réglage fin : il est volontairement assez
+    grand pour que la contrainte dure sur <code>E_max</code> soit seule à arbitrer la
+    géométrie, la végétation ne départageant que les solutions de coût géométrique égal.
+    C'est ce qui rend le résultat lisible — un seul paramètre a un sens physique,
+    et il est en mètres.
+  </p>
+
+  <ul>
+    <li><code>extract_meta.py</code> — EXIF, végétation → <code>meta_photos.json</code> (mis en cache)</li>
+    <li><code>choose_v4.py &lt;budget&gt; &lt;poids_végétation&gt; &lt;erreur_max&gt;</code> — DP exacte</li>
+    <li><code>compare.py</code> — métriques et front de Pareto</li>
+    <li><code>azimuth.py</code>, <code>synth.py</code> — tentative d'estimation des azimuts et sa validation</li>
+  </ul>
+
+  <footer>
+    <p>
+      53 photos du 15 septembre 2026, canal du Loing. Révision 2, intégrant les trois
+      audits. Corrections restant à appliquer : <code>exif_transpose</code> dans
+      l'extraction (le drapeau d'orientation est faux sur 32 photos), et masquage
+      sémantique de l'eau pour lever le faux positif des reflets.
+    </p>
+  </footer>
+
+</div>
