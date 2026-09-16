@@ -12,9 +12,9 @@ cameras, 82 photos taken, 30 submitted.
 
 ![The 30 submitted photos](analysis/contact-sheet.jpg)
 
-The 30 handed in, matching the map below. 28 carry a measured GPS fix; two Rodrigo
-frames have no GPS tag and their positions were estimated from timestamps
-(`data/observations-30.json`). No EXIF was modified.
+The 30 handed in, matching the map below. **All 30 carry a measured GPS fix**, so the
+kit counts every one of them — `kit.py observed` reports
+`30 photos -> 76 of 12221 cells`. No EXIF was modified.
 
 ---
 
@@ -34,18 +34,18 @@ filled.
 | `built` | 626 | 5.1 % |
 
 No photo in the set carries a compass heading, so the 50 m disk convention applies.
-The official kit mask counts **72 observed cells out of 12,221 — 0.6 % of the grid**.
+The official kit mask counts **76 observed cells out of 12,221 — 0.6 % of the grid**.
 The remaining 99.4 % comes from the prior.
 
-V2 differs from V1 by 17 cells out of 12,221. With no ground truth available, that
-difference is not a demonstrated gain.
+Format validated by the official checker: `shape (121, 101), values 1..5`, no unknown
+cell.
 
 ---
 
 ## Contents
 
 ```
-photos/                  the 30 originals, EXIF intact
+vista_photos/            the 30 originals, EXIF intact
 submission/
   vista_submission.npy   the 121 x 101 map
   map-preview.png        rendering of the above
@@ -53,7 +53,6 @@ data/
   selection-30.txt       the list
   photo_metadata.json    EXIF + measurements, all 53 photos
   photo_scores.csv       flat table
-  observations-30.json   per-photo positions, incl. the two estimated ones
 analysis/
   contact-sheet.jpg      the sheet above
   methodologie.html      method and results in full (French)
