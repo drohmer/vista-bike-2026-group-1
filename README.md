@@ -96,10 +96,37 @@ python3 scripts/choose_v4.py 30 500 10
 
 ---
 
+## The submitted map
+
+`submission/vista_submission.npy` — a 121 × 101 `uint8` array, values 1–5, no cell left
+at 0.
+
+![Predicted land cover map](submission/map-preview.png)
+
+| class | cells | share of the grid |
+|---|---:|---:|
+| `broadleaf` | 5,706 | 46.7 % |
+| `conifer` | **0** | **0.0 %** |
+| `open` | 5,731 | 46.9 % |
+| `water` | 161 | 1.3 % |
+| `built` | 623 | 5.1 % |
+
+> ⚠️ **`conifer` is predicted nowhere.** Since IoU is averaged over the five classes,
+> any conifer stand present in the ground truth scores an IoU of exactly 0 for that
+> class, costing up to one fifth of the map ranking. The slides describe Scots pine as
+> "usually planted, often in rows", so the class is unlikely to be absent from the
+> valley. Painting even a plausible conifer patch can only help: predicting none
+> guarantees zero.
+
+---
+
 ## Repository contents
 
 ```
 photos/                  the 30 originals, EXIF intact
+submission/
+  vista_submission.npy   the 121 x 101 map handed in
+  map-preview.png        rendering of the above
 data/
   selection-30.txt       the list
   photo_metadata.json    EXIF + measurements, all 53 photos
