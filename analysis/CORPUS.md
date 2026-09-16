@@ -3,21 +3,21 @@
 438 photos were taken during the ride by five cameras. **Only 53 carry a GPS fix.**
 This single fact drives every downstream decision.
 
-| contributor | camera | photos | with GPS | without | first | last |
-|---|---|---:|---:|---:|---|---|
-| Emery | iPhone 15 Pro | 359 | 0 | **359** | 15:34:43 | 18:54:23 |
-| Damien | iPhone 16 Pro | 48 | **48** | 0 | 15:37:54 | 18:48:23 |
-| Rodrigo | Redmi Note 13 Pro 5G | 21 | 0 | **21** | 15:37:32 | 18:40:05 |
-| nizar | iPhone 15 | 5 | 0 | **5** | 15:36:13 | 15:41:57 |
-| Xavier | MBH-AN10 | 5 | **5** | 0 | 15:35:48 | 15:49:23 |
-| **Total** | | **438** | **53** | **385** | | |
+| contributor | photos | with GPS | without | first | last |
+|---|---:|---:|---:|---|---|
+| Emery | 359 | 0 | **359** | 15:34:43 | 18:54:23 |
+| Damien | 48 | **48** | 0 | 15:37:54 | 18:48:23 |
+| Rodrigo | 21 | 0 | **21** | 15:37:32 | 18:40:05 |
+| nizar | 5 | 0 | **5** | 15:36:13 | 15:41:57 |
+| Xavier | 5 | **5** | 0 | 15:35:48 | 15:49:23 |
+| **Total** | **438** | **53** | **385** | | |
 
 ## Missing GPS is a camera setting, not a transfer loss
 
-The split is binary per device, never partial. On the 385 files without a fix, the rest
+The split is binary per camera, never partial: a camera either tags every photo or none. On the 385 files without a fix, the rest
 of the EXIF is **intact** — `make`, `model`, `software` and `datetime` are all present.
 Had a transfer or an archive stripped the metadata, those fields would have gone too.
-Location services were simply off on three of the five phones.
+Location services were simply off on three of the five cameras.
 
 Coordinates were searched in three independent places — the EXIF GPS IFD, the XMP
 block, and a raw byte scan for `GPSLatitude` / `GPSLongitude` / `location`. **Zero hits

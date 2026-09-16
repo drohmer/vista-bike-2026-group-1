@@ -16,7 +16,7 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BUDGET = int(sys.argv[1]) if len(sys.argv) > 1 else 30
-W_VEG  = float(sys.argv[2]) if len(sys.argv) > 2 else 50.0   # poids vegetation
+W_VEG  = float(sys.argv[2]) if len(sys.argv) > 2 else 50.0   # vegetation weight
 EMAX   = float(sys.argv[3]) if len(sys.argv) > 3 else 1e9    # hard constraint (m)
 
 recs = json.load(open(os.path.join(HERE, 'meta_photos.json')))

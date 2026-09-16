@@ -47,7 +47,7 @@ for r in meta:
     print('sift %-34s %5d pts' % (r['file'][:34], 0 if de is None else len(kp)), file=sys.stderr)
 
 bf = cv2.BFMatcher()
-est = [[] for _ in range(n)]   # easting[i] = liste (azimut, poids, autre, inliers)
+est = [[] for _ in range(n)]   # est[i] = list of (azimuth, weight, peer, inliers)
 rel = []                       # relative rotations, for cross-validation
 
 def horiz_angle(v):
